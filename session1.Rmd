@@ -1,0 +1,92 @@
+---
+title: "play with rmd"
+author: "Phumrapee Boonklang"
+output: html_document
+date: "2024-12-03"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+```
+
+```{r}
+plot(100)
+
+```
+
+```{r}
+download.file(url="https://raw.githubusercontent.com/cambiotraining/reproducibility-training/master/data/gapminder_data.csv", destfile="data/gapminder_data.csv")
+```
+
+```{r histogram, echo = FALSE}
+hist(rnorm(1000), col = "red")
+```
+
+```{r load_data, warning=FALSE, message=FALSE}
+#load tidyverse library
+library(tidyverse) # used for data manipulation
+library(rmarkdown) # used for paged_table function
+library(kableExtra) # used for table
+library(ggpubr) #used for ggarrange function 
+library(DT)
+#read file into R
+pop_data <- read_csv("data/gapminder_data.csv")
+
+#create a table with data from European countries in 2007 showing the countries 
+#with the largest life expectancy at the top 
+euro_data_tbl <- pop_data %>% 
+                    filter(continent == "Europe" & year == 2007) %>% 
+                    select(-continent, -year) %>% 
+                    arrange(desc(lifeExp)) %>% 
+                    rename(Country = country, "Population Size" = pop, 
+                      "Life Expectancy" = lifeExp, "GDP" = gdpPercap)
+```
+
+```{r}
+euro_data_tbl %>% 
+  kableExtra::kbl()
+```
+
+```{r}
+euro_data_tbl %>% 
+  kableExtra::kbl() %>% 
+  kable_styling(bootstrap_options = c("striped", "hover"))
+```
+
+```{r}
+euro_data_tbl %>% 
+  DT::datatable()
+```
+
+```{r}
+plot_violin <- pop_data %>% 
+  filter(continent == "Europe") %>% 
+  ggplot(aes (x = year, y=lifeExp, group = year)) +
+  geom_violin()
+plot_violin
+```
+
+
+<!-- ```{r setup, include=FALSE} -->
+<!-- knitr::opts_chunk$set(echo = TRUE) -->
+<!-- ``` -->
+
+<!-- ## R Markdown -->
+
+<!-- This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>. -->
+
+<!-- When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this: -->
+
+<!-- ```{r cars} -->
+<!-- summary(cars) -->
+<!-- ``` -->
+
+<!-- ## Including Plots -->
+
+<!-- You can also embed plots, for example: -->
+
+<!-- ```{r pressure, echo=FALSE} -->
+<!-- plot(pressure) -->
+<!-- ``` -->
+
+<!-- Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot. -->

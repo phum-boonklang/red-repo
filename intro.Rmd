@@ -1,0 +1,182 @@
+---
+title: "Reproducible Research in R"
+author: "Phumrapee Boonklang"
+date: "3 November 2024"
+output:
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 3
+    df_print: paged
+  word_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 3
+    df_print: paged
+  pdf_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 3
+    df_print: paged
+---
+# H1
+## H1 sub head 1
+## H1 sub head 2
+
+
+## Heading {#Heading-link}
+
+# Heading 1 
+
+## Heading 2
+
+### Heading 3 
+
+#### Heading 4 
+
+##### Heading 5
+
+##### Heading 6
+
+
+
+## Formatting 
+
+I am Phumrapee Boonklang. Note: This is normal text.
+
+I am **Phumrapee Boonklang**. Note: This is bold. 
+
+I am __Phumrapee Boonklang__. Note: This is also bold. 
+
+I work at *Wellcome Sanger Institute*. Note: This is italic. 
+
+I work at _Wellcome Sanger Institute_. Note: This is also italic. 
+
+## Superscript 
+
+10^12^ 
+
+## Subscript 
+
+beta~1~
+
+## Strike 
+~~This is wrong~~
+
+## Empty lines 
+
+I am Phumrapee Boonklang [^1].
+
+
+
+I work at Wellcome Sanger Institute. Note: This won't give you the empty line.
+
+
+I am Phumrapee Boonklang.
+\
+\
+\
+I work at Wellcome Sanger Institute. Note: This won't give you the empty line.
+
+
+## Links
+
+Internal links
+[Go to Heading](#Heading-link)
+
+Note: this contains 3 parts: 
+1. [] to denote the text 
+2. () is the link. 
+3. {} is where the link is referring to. 
+
+External links
+[Link Sanger](https://www.sanger.ac.uk)
+
+Note: this contains 2 parts: 1. [], 2. ()
+
+
+## Footnote 
+
+Note: Footnotes contain 2 parts: 1. [^1] in the text body, 2. [^1]: for description 
+[^1]: aka Phum. 
+
+
+## Ordered Lists 
+
+1. Item 1 
+2. Item 2 
+3. Item 3
+    a. Item 3.a. 
+    b. Item 3.b. 
+4. Item 4
+    I Item 4.I
+    II Item. 4.II
+
+* Item 1 
+  * Item A
+
+
+## Task lists 
+
+- [] Task 1 
+- [x] Task 2 
+- [] Task 3 
+
+## Inserting images 
+
+Syntax is similar to that of links. 
+
+![Moodeng, the baby pygmy hippo](img/BEE00FCA-A34B-44F8-AB6F-63EE35FB2C0F_1_105_c.jpeg)
+\ 
+## Tables
+
+This is rarely used, as usually you would read in a df. 
+
+| Column 1 | Column 2 |
+|----------|----------|
+|Row1  Col1|Row1  Col2|
+|Row2  Col1|Row2  Col2|
+
+## Blocks 
+```
+plot(1:100)
+hist(rnorm(1000))
+```
+
+## adding table of content
+
+see the 'output' setting at the top of this markdown
+
+```
+output:
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+```
+
+## adding references 
+The references have to be in the .bib files
+
+```
+---
+title: "My first notebook"
+author:  Alexia Cardona
+date: 18 February 2020
+bibliography: references.bib
+link-citations: yes
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
